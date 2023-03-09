@@ -6,7 +6,7 @@
 #    By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 10:36:55 by jsantann          #+#    #+#              #
-#    Updated: 2022/11/03 19:30:54 by jsantann         ###   ########.fr        #
+#    Updated: 2023/03/08 15:29:45 by jsantann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS =	ft_atoi.c \
 			ft_isascii.c \
 			ft_isdigit.c \
 			ft_isprint.c \
+			ft_isspace.c \
 			ft_memcpy.c \
 			ft_memchr.c \
 			ft_memcmp.c \
@@ -52,6 +53,8 @@ SRCS =	ft_atoi.c \
 			ft_printf.c \
 			ft_putnbr.c \
 			ft_putchar.c \
+			ft_remove.c \
+			ft_strcmp.c \
 			ft_putstr.c 
 
 SRC_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c\

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 12:56:35 by jsantann          #+#    #+#             */
-/*   Updated: 2023/03/09 14:39:34 by jsantann         ###   ########.fr       */
+/*   Created: 2023/03/05 13:07:28 by jsantann          #+#    #+#             */
+/*   Updated: 2023/03/07 15:08:47 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include "lexer.h"
-# include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include "libft/libft.h"
-
-#endif
+int ft_isspace(int c)
+{
+	if (c == '\t' || c == ' ' || c == '\n' 
+		|| c == '\v' || c == '\f' 
+		|| c == '\r')
+		return (1);
+	else
+		return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 19:48:44 by jsantann          #+#    #+#             */
-/*   Updated: 2022/12/07 17:23:02 by jsantann         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:29:37 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -28,6 +28,7 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(char **argv);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_atoi(const char *str);
@@ -72,5 +73,7 @@ int		ft_printf(const char *format, ...);
 int		ft_putstr(char *s);
 int		ft_putchar(char c);
 int		ft_putnbr(int n);
+char	*ft_remove(char *str, size_t i);
+int		ft_strcmp(char *input, char *res);
 t_list	*ft_lstpenultimate(t_list *lst);
 #endif

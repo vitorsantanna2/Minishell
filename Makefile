@@ -5,6 +5,7 @@
 NAME		:= minishell
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -Iincludes
+LDLIBS		:= -lreadline
 DEBUG		:= -g
 LIBFT		:= includes/libft
 
@@ -12,7 +13,9 @@ LIBFT		:= includes/libft
 #					PROGRAM`S SRCS						 #
 ##########################################################
 
-SRCS		:= srcs/start.c 
+SRCS		:= srcs/start.c \
+			   srcs/lexer/lexer.c \
+			   srcs/lexer/types.c
 
 OBJS		:= $(SRCS:.c=.o)
 
@@ -37,7 +40,7 @@ $(NAME): $(OBJS)
 		@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
 		@$(MAKE) -s -C $(LIBFT) all
 		@ cp ./includes/libft/libft.a .
-		@ cc -o $@ $^ libft.a
+		@ cc -o $@ $^ libft.a $(LDLIBS)
 		@ echo "$(GREEN)$(NAME) created ✔️"
 
 clean:

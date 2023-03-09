@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 12:56:35 by jsantann          #+#    #+#             */
-/*   Updated: 2023/03/09 14:39:34 by jsantann         ###   ########.fr       */
+/*   Created: 2022/12/12 20:55:34 by jsantann          #+#    #+#             */
+/*   Updated: 2023/03/09 15:50:43 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include "lexer.h"
-# include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include "libft/libft.h"
+int	ft_strcmp(char *src, char *dst)
+{
+	size_t	i;
+	size_t	len;
 
-#endif
+	i = 0;
+	len = 0;
+	while (src[len] != ' ' && src[len])
+	{
+		len++;
+	}
+	if (len > ft_strlen(dst))
+		return (1);
+	else
+	{
+		while (i < len)
+		{
+			if (src[i] != dst[i])
+				return (1);
+			i++;
+		}
+		return (0);
+	}
+}	
