@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start.c                                            :+:      :+:    :+:   */
+/*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 14:15:33 by jsantann          #+#    #+#             */
-/*   Updated: 2023/03/10 12:39:57 by jsantann         ###   ########.fr       */
+/*   Created: 2023/03/10 06:21:27 by jsantann          #+#    #+#             */
+/*   Updated: 2023/03/10 08:29:04 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#ifndef PARSE_H
+# define PARSE_H
 
-int main(int argc, char **argv)
-{
-	char *prompt;
+int		count_quotes(char *prompt);
+char	*search_quotes(char *prompt);
+void	start_parse(t_token *tokens, int i);
+void	join_tokens(t_token *tokens, int size, int n_command);
+#endif
 
-	(void) argv;
-	if (argc > 1)
-		error();
-	while (1)
-	{
-		prompt = readline("\033[32m ➜\033[0;34m Minishell \033[1;33m✗ \033[0m");
-		start_lexer(ft_strdup(prompt));
-		free(prompt);
-	}
-}

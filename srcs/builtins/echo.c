@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start.c                                            :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 14:15:33 by jsantann          #+#    #+#             */
-/*   Updated: 2023/03/10 12:39:57 by jsantann         ###   ########.fr       */
+/*   Created: 2023/03/09 16:49:36 by jsantann          #+#    #+#             */
+/*   Updated: 2023/03/10 13:07:14 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "minishell.h"
 
-int main(int argc, char **argv)
+void	echo(char **args, int size)
 {
-	char *prompt;
+	char	*message;
+	int		flag;
+	int		i;
 
-	(void) argv;
-	if (argc > 1)
-		error();
-	while (1)
+	i = 1;
+	flag = 0;
+	if (size < 2)
 	{
-		prompt = readline("\033[32m ➜\033[0;34m Minishell \033[1;33m✗ \033[0m");
-		start_lexer(ft_strdup(prompt));
-		free(prompt);
+		printf("\n");
+		return	;
 	}
+	while (!ft_strcmp(args[i], "-n"))
+	{
+		i++;
+		flag = 1;
+	}
+	message = malloc(sizeof(char) * size + 1);
+	message = args[i];
+	while (++i < size)
+	{
+		message = ft_strjoin(message, " ");
+		message = ft_strjoin(message, args[i]);
+	}
+	if (flag == 1)
+		printf("%s", message);
+	else
+		printf("%s\n", message);
 }

@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start.c                                            :+:      :+:    :+:   */
+/*   commands.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 14:15:33 by jsantann          #+#    #+#             */
-/*   Updated: 2023/03/10 12:39:57 by jsantann         ###   ########.fr       */
+/*   Created: 2023/03/09 17:20:31 by jsantann          #+#    #+#             */
+/*   Updated: 2023/03/10 13:23:10 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#ifndef COMMANDS_H
+# define COMMANDS_H
 
-int main(int argc, char **argv)
-{
-	char *prompt;
-
-	(void) argv;
-	if (argc > 1)
-		error();
-	while (1)
-	{
-		prompt = readline("\033[32m ➜\033[0;34m Minishell \033[1;33m✗ \033[0m");
-		start_lexer(ft_strdup(prompt));
-		free(prompt);
-	}
-}
+void	split_commands(char **args, int n_command);
+void	exec_commands(char ***re_split, int n_command);
+void	echo(char **args, int size);
+void	pwd(void);
+void	cd(char **path);
+#endif

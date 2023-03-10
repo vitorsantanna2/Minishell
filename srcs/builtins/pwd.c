@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start.c                                            :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 14:15:33 by jsantann          #+#    #+#             */
-/*   Updated: 2023/03/10 12:39:57 by jsantann         ###   ########.fr       */
+/*   Created: 2023/03/10 13:07:24 by jsantann          #+#    #+#             */
+/*   Updated: 2023/03/10 13:15:10 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(int argc, char **argv)
+void	pwd(void)
 {
-	char *prompt;
+	char	cwd[1024];
 
-	(void) argv;
-	if (argc > 1)
-		error();
-	while (1)
-	{
-		prompt = readline("\033[32m ➜\033[0;34m Minishell \033[1;33m✗ \033[0m");
-		start_lexer(ft_strdup(prompt));
-		free(prompt);
-	}
+	if (getcwd(cwd, sizeof(cwd)))
+		printf("%s\n", cwd);
 }

@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsantann <jsantann@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 14:15:33 by jsantann          #+#    #+#             */
-/*   Updated: 2023/03/10 12:39:57 by jsantann         ###   ########.fr       */
+/*   Created: 2023/03/09 16:02:46 by jsantann          #+#    #+#             */
+/*   Updated: 2023/03/10 00:05:09 by jsantann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(int argc, char **argv)
+void	error(void)
 {
-	char *prompt;
-
-	(void) argv;
-	if (argc > 1)
-		error();
-	while (1)
-	{
-		prompt = readline("\033[32m ➜\033[0;34m Minishell \033[1;33m✗ \033[0m");
-		start_lexer(ft_strdup(prompt));
-		free(prompt);
-	}
+	write(2, "Error\n", 6);
+	exit(2);
 }

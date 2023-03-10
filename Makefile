@@ -4,7 +4,7 @@
 
 NAME		:= minishell
 CC			:= cc
-CFLAGS		:= -Wall -Wextra -Werror -Iincludes
+CFLAGS		:= -Wall -Wextra -Werror -g -Iincludes
 LDLIBS		:= -lreadline
 DEBUG		:= -g
 LIBFT		:= includes/libft
@@ -14,8 +14,13 @@ LIBFT		:= includes/libft
 ##########################################################
 
 SRCS		:= srcs/start.c \
-			   srcs/lexer/lexer.c \
-			   srcs/lexer/types.c
+			   srcs/lexer/token.c \
+			   srcs/parse/parse.c \
+			   srcs/builtins/commands.c \
+			   srcs/builtins/echo.c \
+			   srcs/builtins/pwd.c \
+			   srcs/builtins/cd.c \
+			   srcs/utils/utils.c 
 
 OBJS		:= $(SRCS:.c=.o)
 
